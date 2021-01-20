@@ -32,7 +32,7 @@ window.onload = () => {
     document.getElementById("pauseToggleButton").addEventListener('click', onClickPauseToggleButton);
 
     document.getElementById("x0Input").addEventListener('input', e => {
-        x0 = e.target.value;
+        x0 = parseFloat(e.target.value);
     });
 
     initThree();
@@ -129,12 +129,12 @@ function createControls() {
 
 function getUserParams() {
     solverStr = document.getElementById("SelectSolver").value;
-    timeMax = document.getElementById("timeMaxInput").value;
-    dt = document.getElementById("dtInput").value;
-    kSpring = document.getElementById("kInput").value;
-    mass = document.getElementById("mInput").value;
-    x0 = document.getElementById("x0Input").value;
-    warp = document.getElementById("warpInput").value;
+    timeMax = parseFloat(document.getElementById("timeMaxInput").value);
+    dt = parseFloat(document.getElementById("dtInput").value);
+    kSpring = parseFloat(document.getElementById("kInput").value);
+    mass = parseFloat(document.getElementById("mInput").value);
+    x0 = parseFloat(document.getElementById("x0Input").value);
+    warp = parseFloat(document.getElementById("warpInput").value);
 
     if (timeMax <= 0 || dt <= 0 || kSpring <= 0 || mass <= 0 || warp <= 0) {
         console.error("Illegal input values, might result in an infinite loop, skipping execution!");
