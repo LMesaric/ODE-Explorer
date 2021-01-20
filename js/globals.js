@@ -1,6 +1,7 @@
 const baseSolvers = new Map([
     ["Forward Euler", "new ForwardEuler()"],
     ["Backward Euler", "new BackwardEuler()"],
+    ["Symplectic Euler", "new SymplecticEuler()"],
     ["Trapezoidal", "new Trapezoidal()"],
     ["Heun's method", "new PredictorCorrector('forward-euler', 'trapezoidal', 1)"],
     ["Runge-Kutta 4", "new RungeKutta4()"],

@@ -77,6 +77,20 @@ class BackwardEuler extends LinearDifferentialSolver {
     }
 }
 
+class SymplecticEuler extends LinearDifferentialSolver {
+    from(A, B, r, T, timeMax) {
+        // Hacky ignore of B and r, extracting k/m from matrix - works only for this spring model.
+        const omegaSq = -math.subset(A, math.index(1, 0));
+        A = math.matrix([[1 - omegaSq * T * T, T], [-omegaSq * T, 1]]);
+        super.from(A, null, null, T, timeMax);
+        return this;
+    }
+
+    nextStepInternal(xk, tk) {
+        return this.evalLinear(xk, tk);
+    }
+}
+
 class Trapezoidal extends LinearDifferentialSolver {
     from(A, B, r, T, timeMax) {
         super.from(A, B, r, T, timeMax);
