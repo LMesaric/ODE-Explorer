@@ -1,0 +1,31 @@
+body {
+    margin: 30px;
+}
+
+label {
+    white-space: nowrap;
+}
+
+.margined {
+    margin-right: 10px;
+}
+
+.inputField {
+    color: #ff0000;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.flex-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.flex-item-left {
+    flex: 50%;
+    padding-right: 20px;
+}
+
+.flex-item-right {
+    flex: 1%;
+}

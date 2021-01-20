@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>ODE Explorer</title>
+
+	<link type="text/css" rel="stylesheet" href="css/styles.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/8.1.1/math.js"></script>
+	<script src="https://unpkg.com/three@0.124.0"></script>
+
+	<script src="js/solvers.js"></script>
+	<script src="js/globals.js"></script>
+	<script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+	<div style="margin-bottom: 20px;">
+		<select class="margined" id="SelectSolver"></select>
+
+		<label for="timeMaxInput">
+			Total time (s):
+			<input type="number" class="inputField" id="timeMaxInput" step="1" min="0" style="width: 6ch;">
+		</label>
+
+		<label for="dtInput">
+			dt (s):
+			<input type="number" class="inputField" id="dtInput" step="0.01" min="0" style="width: 8ch;">
+		</label>
+
+		<label for="kInput">
+			k (N/m):
+			<input type="number" class="inputField" id="kInput" step="1" min="0" style="width: 8ch;">
+		</label>
+
+		<label for="mInput">
+			m (kg):
+			<input type="number" class="inputField" id="mInput" step="1" min="0" style="width: 8ch;">
+		</label>
+
+		<label for="x0Input">
+			x0 (m):
+			<input type="number" class="inputField" id="x0Input" step="0.1" style="width: 6ch;">
+		</label>
+
+		<label for="warpInput">
+			Time warp:
+			<input type="number" class="inputField" id="warpInput" step="0.5" style="width: 6ch;">
+		</label>
+
+		<button type="button" id="runButton"><u>R</u>un</button>
+		<button type="button" id="pauseToggleButton"><u>P</u>ause</button>
+	</div>
+
+	<div style="margin-bottom: 20px;">
+		<label>Total energy (J): </label><label id="energy">0</label>
+	</div>
+
+	<div id="threeHolder" style="width: 100%; height: 350px; margin-bottom: 50px;"></div>
+
+	<div class='flex-container'>
+		<div class='flex-item-left'>
+			<div
+				style="position: relative; height: 100%; width: 60vw; min-height: 250px; min-width: 500px; max-width: 1000px;">
+				<canvas id="txChart"></canvas>
+			</div>
+		</div>
+		<div class='flex-item-right'>
+			<div style="position: relative; height: 100%; width: 400px; min-height: 400px; min-width: 400px;">
+				<canvas id="xvChart"></canvas>
+			</div>
+		</div>
+	</div>
+
+	<div style="font-size: 12px; color: grey; margin-top: 20px;">ODE Explorer &ndash; Copyright (c) 2021 Luka Mesarić
+		&ndash; MIT License</div>
+
+</body>
+
+</html>
