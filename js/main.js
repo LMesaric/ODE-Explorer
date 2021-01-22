@@ -161,6 +161,7 @@ function onClickRunButton() {
 
     isRunning = true;
     isPaused = false;
+    document.getElementById("pauseToggleButton").innerHTML = pauseButtonText;
     goalTime = 0;
 
     iterator = peekable(eval(solverStr)
